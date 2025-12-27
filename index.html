@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMAR | STARK-TECH HUD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-blue: #00f2ff; --neon-glow: rgba(0, 242, 255, 0.4); }
+        body { 
+            background-color: #020617; color: #e2e8f0; 
+            font-family: 'Share Tech Mono', monospace; 
+            background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            scroll-behavior: smooth;
+        }
+        .hud-border { border: 1px solid var(--neon-blue); box-shadow: 0 0 15px var(--neon-glow); }
+        .glow-text { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-glow); }
+        .iron-btn { 
+            background: transparent; border: 1px solid var(--neon-blue); 
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+            transition: all 0.3s;
+        }
+        .iron-btn:hover { background: var(--neon-blue); color: #020617; box-shadow: 0 0 20px var(--neon-blue); }
+        .scanline {
+            width: 100%; height: 2px; background: var(--neon-glow);
+            position: fixed; top: 0; left: 0; z-index: 100;
+            animation: scan 4s linear infinite; opacity: 0.3;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100vh; } }
+        .arc-reactor {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 2px solid var(--neon-blue); box-shadow: inset 0 0 20px var(--neon-blue), 0 0 20px var(--neon-blue);
+            display: flex; align-items: center; justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.8; } }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="scanline"></div>
+
+    <nav class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-cyan-500/30">
+        <div class="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+            <h1 class="text-2xl font-bold glow-text font-['Orbitron'] tracking-widest">MUA_SYSTEMS.v1</h1>
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest">
+                <a href="#about" class="hover:text-cyan-400 transition underline-offset-8 hover:underline">01_BIO</a>
+                <a href="#skills" class="hover:text-cyan-400 transition underline-offset-8 hover:underline">02_ARSENAL</a>
+                <a href="#experience" class="hover:text-cyan-400 transition underline-offset-8 hover:underline">03_LOGS</a>
+                <a href="#contact" class="hover:text-cyan-400 transition underline-offset-8 hover:underline">04_UPLINK</a>
+            </div>
+            <a href="mailto:umaransarimd2003@gmail.com" class="iron-btn px-6 py-2 text-xs font-bold uppercase">Download_Data</a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4">
+        <div class="arc-reactor mb-10">
+            <span class="text-xs text-cyan-400 font-bold">CORE_ACTIVE</span>
+        </div>
+        <div class="space-y-2 mb-8">
+            <p class="text-cyan-500/60 text-xs tracking-tighter uppercase font-bold">[ INITIALIZING SYSTEMS... ]</p>
+            <h2 class="text-6xl md:text-8xl font-black font-['Orbitron'] tracking-tighter mb-4">I'M <span class="glow-text">UMAR</span></h2>
+            <p class="text-xl md:text-2xl text-slate-400 font-bold tracking-widest uppercase">Python_Dev // Data_Architect</p>
+        </div>
+        <p class="max-w-xl text-slate-500 text-sm leading-relaxed mb-10 italic">
+            "Turning complex data into tactical solutions with Stark-level efficiency."
+        </p>
+        <div class="flex gap-6">
+            <a href="#contact" class="iron-btn px-10 py-3 text-sm font-bold">UPLINK_COMM</a>
+            <a href="#projects" class="px-10 py-3 text-sm font-bold border border-slate-700 hover:border-cyan-400 transition">VIEW_PROJECTS</a>
+        </div>
+    </header>
+
+    <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-cyan-500/20">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="hud-border p-8 bg-slate-900/40 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-2 text-[10px] text-cyan-900 font-bold">SERIAL_NO: 9603251103</div>
+                <span class="glow-text text-xs font-bold uppercase tracking-widest">SYSTEM_DIAGNOSTICS</span>
+                <h3 class="text-3xl font-bold font-['Orbitron'] mt-4 mb-6">Efficiency Overload</h3>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="flex justify-between border-b border-cyan-500/20 pb-2">
+                        <span class="text-slate-400">Manual Data Processing:</span>
+                        <span class="glow-text font-bold">-30.0% [DECREASED]</span>
+                    </div>
+                    <div class="flex justify-between border-b border-cyan-500/20 pb-2">
+                        <span class="text-slate-400">System Accuracy:</span>
+                        <span class="text-emerald-400 font-bold">+25.0% [OPTIMIZED]</span>
+                    </div>
+                    <div class="flex justify-between border-b border-cyan-500/20 pb-2">
+                        <span class="text-slate-400">Team Participation:</span>
+                        <span class="text-purple-400 font-bold">+50.0% [PEAK]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="glow-text font-bold uppercase mb-2">Education_Protocol</h4>
+                    <p class="text-sm font-bold text-slate-300">B.E. Electronics & Communication [cite: 10]</p>
+                    <p class="text-xs text-slate-500">St. Ann's College of Engineering & Technology [cite: 10]</p>
+                </div>
+                <div>
+                    <h4 class="glow-text font-bold uppercase mb-2">Leadership_Module</h4>
+                    <p class="text-sm font-bold text-slate-300">Hackathon Lead [cite: 34]</p>
+                    <p class="text-xs text-slate-500">Directed 10-Unit Peer Team [cite: 34]</p>
+                </div>
+                <div>
+                    <h4 class="glow-text font-bold uppercase mb-2">Current_Directives</h4>
+                    <p class="text-xs text-slate-400 leading-loose">
+                        Seeking Junior Developer Role to apply Python skills and drive system growth[cite: 8]. Currently exploring latest technologies and tactical badminton[cite: 31, 32].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="max-w-6xl mx-auto px-6 py-24 bg-slate-950 border-y border-cyan-500/20">
+        <div class="text-center mb-16">
+            <h3 class="text-4xl font-bold font-['Orbitron'] glow-text">TECHNICAL_ARSENAL</h3>
+            <p class="text-slate-500 text-xs mt-2 uppercase tracking-[0.5em]">Weaponry and Support Modules</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="hud-border p-6 text-center hover:bg-cyan-500/5 transition group">
+                <i class="fab fa-python text-3xl mb-4 group-hover:scale-110 transition"></i>
+                <p class="text-xs font-bold tracking-widest uppercase">Python [cite: 15]</p>
+            </div>
+            <div class="hud-border p-6 text-center hover:bg-cyan-500/5 transition group">
+                <i class="fas fa-database text-3xl mb-4 group-hover:scale-110 transition"></i>
+                <p class="text-xs font-bold tracking-widest uppercase">SQL [cite: 15]</p>
+            </div>
+            <div class="hud-border p-6 text-center hover:bg-cyan-500/5 transition group">
+                <i class="fas fa-microchip text-3xl mb-4 group-hover:scale-110 transition"></i>
+                <p class="text-xs font-bold tracking-widest uppercase">NumPy & Pandas [cite: 15]</p>
+            </div>
+            <div class="hud-border p-6 text-center hover:bg-cyan-500/5 transition group">
+                <i class="fab fa-git-alt text-3xl mb-4 group-hover:scale-110 transition"></i>
+                <p class="text-xs font-bold tracking-widest uppercase">Git [cite: 15]</p>
+            </div>
+            <div class="hud-border p-6 text-center hover:bg-cyan-500/5 transition group">
+                <i class="fas fa-terminal text-3xl mb-4 group-hover:scale-110 transition"></i>
+                <p class="text-xs font-bold tracking-widest uppercase">Jupyter_NB [cite: 15]</p>
+            </div>
+            <div class="hud-border p-6 text-center hover:bg-cyan-500/5 transition group">
+                <i class="fas fa-users-cog text-3xl mb-4 group-hover:scale-110 transition"></i>
+                <p class="text-xs font-bold tracking-widest uppercase">Soft_Skills [cite: 13, 15]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="max-w-4xl mx-auto px-6 py-24">
+        <h3 class="text-3xl font-bold font-['Orbitron'] mb-12 text-center uppercase tracking-widest">Mission_History</h3>
+        <div class="relative border-l-2 border-cyan-500/30 pl-8 space-y-16">
+            <div class="relative">
+                <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_10px_#00f2ff]"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h4 class="text-xl font-bold glow-text">Assistant Python Developer [cite: 17]</h4>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Amaravathi Software Innovations [cite: 18]</p>
+                    </div>
+                    <span class="text-[10px] bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 text-cyan-400 font-bold">06_2024 - 08_2024 [cite: 20]</span>
+                </div>
+                <ul class="text-sm text-slate-500 space-y-3 font-bold">
+                    <li>- Deployed automation scripts reducing processing time by 30%.</li>
+                    <li>- Engineered data collection techniques for 25% accuracy boost[cite: 23].</li>
+                    <li>- Optimized ML preprocessing for 15% accuracy gain[cite: 24].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-24 border-t border-cyan-500/20">
+        <h3 class="text-3xl font-bold font-['Orbitron'] mb-16 text-center uppercase tracking-widest">Active_Modules</h3>
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="hud-border p-8 hover:bg-slate-900/60 transition group cursor-crosshair">
+                <div class="flex justify-between mb-4">
+                    <span class="text-[10px] text-cyan-500 font-bold">REF_ID: AI_01</span>
+                    <i class="fas fa-brain text-cyan-400 group-hover:rotate-12 transition"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">Mental Fitness Tracker [cite: 26, 27]</h4>
+                <p class="text-xs text-slate-500 leading-relaxed mb-6 font-bold">
+                    AI-powered diagnostic module using NumPy and Pandas to analyze patterns and behaviors in collaborative environments[cite: 26, 27].
+                </p>
+                <div class="flex gap-2">
+                    <span class="text-[8px] border border-slate-700 px-2 py-1 uppercase">AI/ML</span>
+                    <span class="text-[8px] border border-slate-700 px-2 py-1 uppercase">Python</span>
+                </div>
+            </div>
+            <div class="hud-border p-8 hover:bg-slate-900/60 transition group cursor-crosshair">
+                <div class="flex justify-between mb-4">
+                    <span class="text-[10px] text-emerald-500 font-bold">REF_ID: PM_02</span>
+                    <i class="fas fa-project-diagram text-emerald-400 group-hover:rotate-12 transition"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4 text-emerald-400">Project Management Tool [cite: 28]</h4>
+                <p class="text-xs text-slate-500 leading-relaxed mb-6 font-bold">
+                    Workflow automation engine integrating Pandas and Flask to achieve 40% team productivity enhancement[cite: 28, 29].
+                </p>
+                <div class="flex gap-2">
+                    <span class="text-[8px] border border-slate-700 px-2 py-1 uppercase text-emerald-500 border-emerald-500/30">FLASK</span>
+                    <span class="text-[8px] border border-slate-700 px-2 py-1 uppercase text-emerald-500 border-emerald-500/30">PANDAS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-4xl mx-auto px-6 py-24 mb-20">
+        <div class="hud-border p-12 text-center bg-cyan-950/10">
+            <h3 class="text-4xl font-bold font-['Orbitron'] glow-text mb-12 uppercase">Communication_Uplink</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <a href="mailto:umaransarimd2003@gmail.com" class="space-y-4 hover:scale-105 transition">
+                    <div class="text-cyan-400 text-3xl"><i class="fas fa-envelope"></i></div>
+                    <p class="text-xs font-bold uppercase tracking-widest">Secure_Mail</p>
+                    <p class="text-[10px] text-slate-500 break-all">umaransarimd2003@gmail.com [cite: 3]</p>
+                </a>
+                <a href="https://linkedin.com/in/umar-ansari-a785a8258" target="_blank" class="space-y-4 hover:scale-105 transition">
+                    <div class="text-cyan-400 text-3xl"><i class="fab fa-linkedin-in"></i></div>
+                    <p class="text-xs font-bold uppercase tracking-widest">Net_Profile</p>
+                    <p class="text-[10px] text-slate-500 break-all">Connect_on_LinkedIn [cite: 4]</p>
+                </a>
+                <a href="tel:+919603251103" class="space-y-4 hover:scale-105 transition">
+                    <div class="text-cyan-400 text-3xl"><i class="fas fa-satellite-dish"></i></div>
+                    <p class="text-xs font-bold uppercase tracking-widest">Comm_Line</p>
+                    <p class="text-[10px] text-slate-500">+91 9603251103 </p>
+                </a>
+            </div>
+            <div class="mt-16 pt-10 border-t border-cyan-500/20">
+                <p class="text-[10px] text-slate-600 uppercase font-bold mb-2">Location_Data</p>
+                <p class="text-xs font-bold glow-text uppercase tracking-widest">Bapatla // Andhra Pradesh // IN </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-10 border-t border-slate-900 bg-slate-950">
+        <p class="text-[8px] text-slate-700 tracking-[1em] uppercase">Built for Umar Ansari // AI_ Thought Partner Protocol</p>
+    </footer>
+
+    
+
+[Image of futuristic HUD interface elements]
+
+</body>
+</html>
